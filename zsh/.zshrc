@@ -114,7 +114,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-export EDITOR=vim
+export EDITOR=nvim
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
 
@@ -122,20 +122,17 @@ alias ec='$EDITOR ~/.zshrc'
 alias sc='source ~/.zshrc'
 alias clr='clear && fastfetch'
 alias clip='xclip -selection clipboard'
-alias l='ls'
 alias la='ls -A'
 alias ssh='kitty +kitten ssh'
 alias pkmn='pokemon-colorscripts -r'
-alias paru='paru --color always'
-alias pacman='pacman --color always'
 alias chip='mpc clear && mpc load chipi-chapa && mpc consume on && mpc next && mpc consume off'
 alias mpcs='mpc stop'
 alias mpcl='mpc load'
 alias mpcp='mpc play'
 alias mpcsh='mpc shuffle'
 alias lolfetch='fastfetch | lolcat'
-alias paru='paru -Syu'
 alias sl='sl -e'
+alias cargon='cargo +nightly'
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 	startx
@@ -149,3 +146,15 @@ export PATH="$PATH:/home/ella/.local/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# pnpm
+export PNPM_HOME="/home/ella/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
