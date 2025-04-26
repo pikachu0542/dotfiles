@@ -5,8 +5,6 @@ BRIGHTNESS_NR=${BRIGHTNESS_VALUE//%/}
 if [ $BRIGHTNESS_NR -lt 20 ]; then
 	BRIGHTNESS_ICON=''
 elif [ $BRIGHTNESS_NR -lt 50 ]; then
-	BRIGHTNESS_ICON=''
-elif [ $BRIGHTNESS_NR -lt 80 ]; then
 	BRIGHTNESS_ICON=''
 else
 	BRIGHTNESS_ICON=''
