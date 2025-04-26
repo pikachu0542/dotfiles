@@ -232,7 +232,7 @@ exec_always --no-startup-id feh --bg-fill ~/Documents/simple-pikachu-wallpaper.p
 for_window [class="firefox"] move to workspace $web
 for_window [class="google-chrome"] move to workspace $web
 for_window [class="Code"] move to workspace $code
-for_window [class="vscodium"] move to workspace $code
+for_window [class="vscode"] move to workspace $code
 for_window [class="code-oss"] move to workspace $code
 for_window [class="Slack"] move to workspace $chat
 for_window [class="discord"] move to workspace $chat
@@ -252,4 +252,4 @@ default_border pixel 0
 bindsym $mod+Shift+f exec --no-startup-id firefox
 bindsym $mod+Shift+s exec --no-startup-id slack
 bindsym $mod+Shift+d exec --no-startup-id discord
-bindsym $mod+Shift+v exec --no-startup-id codium
+bindsym $mod+Shift+v exec --no-startup-id code
