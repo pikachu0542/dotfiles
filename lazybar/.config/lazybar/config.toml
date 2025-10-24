@@ -1,0 +1,183 @@
+[bars.top]
+monitor = "eDP-1"
+position = "top"
+height = 35
+transparent = true # Allows for transparency if desired
+bg = "#1d1e29"
+default_attrs = "default"
+margin_left = 5
+margin_internal = 10
+margin_right = 10
+ipc = true
+panels_left = ["archlogo", "separator", "battery", "separator", "xworkspaces"]
+panels_center = ["clock"]
+panels_right = ["pulseaudio", "separator", "brightness", "separator", "systray"]
+
+[bars.bottom]
+monitor = "eDP-1"
+position = "bottom"
+height = 35
+transparent = true
+bg = "#1d1e29"
+default_attrs = "default"
+margin_left = 5
+margin_internal = 10
+margin_right = 10
+ipc = true
+panels_left = ["memory", "separator", "cpu", "separator", "uptime"]
+panels_center = [""]
+panels_right = ["updates"]
+
+[panels.archlogo]
+type = "separator"
+attrs = "none"
+format = "<span foreground='#1793d1'></span>"
+
+[panels.separator]
+type = "separator"
+attrs = "none"
+format = "<span color='#1d4b80'>//</span>"
+
+[panels.battery]
+type = "battery"
+battery = "BAT0"
+adapter = "ACAD"
+format_full = "%ramp% <span color='#50fa7b'>Full</span>"
+format_charging = "<span color='#ffea00'></span> %ramp%%percentage%%"
+format_discharging = "%ramp%%percentage%%"
+format_not_charging = "%ramp%%percentage%%"
+ramp = "battery"
+
+[panels.xworkspaces]
+type = "xworkspaces"
+attrs_active = "active_blocks"
+attrs_nonempty = "nonempty_blocks"
+attrs_inactive = "inactive_blocks"
+highlight_active = "cyan"
+
+[panels.clock]
+type = "clock"
+precisions = ["seconds", "minutes"]
+# Allow toggling between seconds and minutes
+formats = ["<span foreground='#fff'>%a %b %d %Y %I:%M:%S %p</span>","<span foreground='#fff'>%a %b %d %Y %I:%M %p</span>"]
+click_left = "cycle"
+click_right = "cycle_back"
+
+[panels.pulseaudio]
+type = "pulseaudio"
+ramp_unmuted = "pa"
+ramp_muted = "pa_muted"
+click_left = "toggle"
+scroll_up = "decrement"
+scroll_down = "increment"
+format_unmuted = "%ramp%%volume%"
+format_muted = "%ramp%%volume%"
+unit = 1
+
+[panels.brightness]
+type = "custom"
+command = "/home/ella/.config/lazybar/scripts/brightnessctl.sh"
+interval = 5
+attrs = "brightness"
+format = "%stdout%"
+
+[panels.systray]
+type = "systray"
+size = 14
+padding = 10
+sort = "window_name_lower"
+bg = "default"
+attrs = "systray"
+
+[panels.memory]
+type = "memory"
+format = "<span foreground='#df6dff'>RAM</span> %percentage_used%%"
+interval = 5
+
+[panels.cpu]
+type = "cpu"
+format = "<span foreground='#0ff'>CPU</span> %percentage%%"
+interval = 2
+
+[panels.uptime]
+type = "custom"
+command = "/home/ella/.config/lazybar/scripts/uptime.sh"
+format = "%stdout%"
+interval = 60
+
+[panels.mpd]
+type = "mpd"
+fg = "#fff"
+attrs = "mpd"
+progress_bar = true
+max_width = 30
+strategy = "scroll"
+scroll_interval = 300
+format_playing = "%shuffle% %main% <span font_size='20pt' rise='-5pt'>%prev% %toggle% %next%</span>"
+format_paused = "%shuffle% %main% <span font_size='20pt' rise='-5pt'>%prev% %toggle% %next%</span>"
+format_main = "%title% - %artist%"
+format_shuffle = "<span font_size='25pt' rise='-7.5pt'>󰒟</span>"
+format_prev = "󰒮"
+format_toggle_playing = "󰏤"
+format_toggle_paused = "󰐊"
+format_next = "󰒭"
+
+[panels.updates]
+type = "custom"
+command = "/home/ella/.config/lazybar/scripts/package-updates.sh"
+format = "%stdout%"
+interval = 300
+
+[ramps.pa]
+0 = "<span color='#1793d1' font_size='16pt'></span> "
+1 = "<span color='#1793d1' font_size='16pt'></span> "
+2 = "<span color='#1793d1' font_size='16pt'></span>  "
+
+[ramps.pa_muted]
+0 = "<span color='#ff5555' font_size='16pt'>󰸈</span>"
+1 = "<span color='#ff5555' font_size='16pt'>󰖁</span> "
+
+[ramps.battery]
+0 = "<span color='#ff5555'> </span> "
+1 = "<span color='#ffb86c'> </span> "
+2 = "<span color='#f1fa8c'> </span> "
+3 = "<span color='#50fa7b'> </span> "
+4 = "<span color='#50fa7b'> </span> "
+
+[attrs.brightness]
+fg = "#faf155"
+
+[attrs.systray]
+bg = "default"
+
+[attrs.default]
+bg = "default"
+fg = "#ccc"
+font = "JetBrainsMono Nerd Font 12"
+#font = "FiraCode Nerd Font Mono 10"
+
+[attrs.active_blocks]
+bg = "active"
+
+[attrs.nonempty_blocks]
+bg = "nonempty"
+fg = "#aaa"
+
+[attrs.inactive_blocks]
+bg = "inactive"
+fg = "#777"
+
+[bgs.default]
+style = "bubble_prop"
+radius = 12
+color = "#1d1e29"
+
+[bgs.manual]
+style = "bubble"
+border = 8
+radius = 12
+color = "#1d1e29"
+
+[highlights.cyan]
+underline_height = 5
+underline_color = "#0ff"
