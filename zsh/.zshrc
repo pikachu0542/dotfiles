@@ -141,6 +141,14 @@ else
   FD_INSTALLED=false
 fi
 
+# Is 'ripgrep' installed?
+if command -v rg >/dev/null 2>&1
+then
+  RIPGREP_INSTALLED=true
+else
+  RIPGREP_INSTALLED=false
+fi
+
 # ============= SET ALIASES BASED ON ENV VARS =================
 
 # Alias ls based on whether eza is installed
@@ -153,4 +161,10 @@ fi
 if $FD_INSTALLED
 then
   alias find='fd'
+fi
+
+# Alias grep based on whether ripgrep is installed
+if $RIPGREP_INSTALLED
+then
+  alias grep='rg'
 fi
