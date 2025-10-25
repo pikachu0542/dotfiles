@@ -121,3 +121,36 @@ esac
 if command -v zoxide > /dev/null; then
   eval "$(zoxide init zsh)"
 fi
+
+
+# ====== CHECK SOFTWARE INSTALLS =====
+
+# Is 'eza' installed?
+if command -v eza >/dev/null 2>&1
+then
+  EZA_INSTALLED=true
+else
+  EZA_INSTALLED=false
+fi
+
+# Is 'fd' installed?
+if command -v fd >/dev/null 2>&1
+then
+  FD_INSTALLED=true
+else
+  FD_INSTALLED=false
+fi
+
+# ============= SET ALIASES BASED ON ENV VARS =================
+
+# Alias ls based on whether eza is installed
+if $EZA_INSTALLED
+then
+  alias ls='eza'
+fi
+
+# Alias find if fd is installed
+if $FD_INSTALLED
+then
+  alias find='fd'
+fi
