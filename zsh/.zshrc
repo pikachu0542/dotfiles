@@ -102,6 +102,7 @@ fi
 
 # Created by `pipx` on 2024-01-03 18:19:48
 export PATH="$PATH:/home/ella/.local/bin"
+export PATH="$PATH:/usr/local/go/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -149,6 +150,14 @@ else
   RIPGREP_INSTALLED=false
 fi
 
+# Is 'bat' installed?
+if command -v bat >/dev/null 2>&1
+then
+  BAT_INSTALLED=true
+else
+  BAT_INSTALLED=false
+fi
+
 # ============= SET ALIASES BASED ON ENV VARS =================
 
 # Alias ls based on whether eza is installed
@@ -167,4 +176,10 @@ fi
 if $RIPGREP_INSTALLED
 then
   alias grep='rg'
+fi
+
+# Alias cat based on whether bat is installed
+if $BAT_INSTALLED
+then
+  alias pbat='bat -Pp'
 fi
