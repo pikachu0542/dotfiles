@@ -6,9 +6,10 @@
 # Otherwise you can use the nuclear option:
 pkill lazybar
 
-lazybar -b top
+lazybar top
 disown
-lazybar -b bottom
+
+lazybar bottom
 disown
 
 echo "Bars launched..."
