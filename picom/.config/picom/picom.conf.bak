@@ -308,9 +308,7 @@ rules: ({
           "_GTK_FRAME_EXTENTS@";
   shadow = false;
 }, {
-  match = "name = 'kitty' || "
-	  "name = 'Kitty' || "
-	  "class_g = 'kitty' ";
+   match =  "class_g = 'kitty' ";
   opacity = 0.85;
 })
 
