@@ -226,7 +226,7 @@ bindsym $mod+r mode "resize"
 # Display wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Documents/simple-pikachu-wallpaper.png
 
-# exec --no-startup-id /usr/lib/gsd-xsettings
+exec --no-startup-id /usr/lib/gsd-xsettings
 
 # Allocate applications to workspaces
 for_window [class="firefox"] move to workspace $web
